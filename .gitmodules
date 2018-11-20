@@ -7,3 +7,9 @@
 [submodule "third-party/jsoncpp"]
 	path = third-party/jsoncpp
 	url = https://github.com/open-source-parsers/jsoncpp.git
+[submodule "third-party/glog"]
+	path = third-party/glog
+	url = https://github.com/google/glog.git
+[submodule "third-party/gflag"]
+	path = third-party/gflag
+	url = https://github.com/gflags/gflags.git
