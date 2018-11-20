@@ -16,6 +16,7 @@ include_directories(third-party)
 add_subdirectory(third-party/abseil-cpp)
 add_subdirectory(third-party/jsoncpp)
 add_subdirectory(third-party/gflag)
+add_subdirectory(third-party/glog)
 
 include_directories(third-party/jsoncpp/include)
 include_directories(third-party/gflag/include)
@@ -32,4 +33,4 @@ add_executable(Demo ${DIR_SRCS})
 
 # 添加链接库
 #target_link_libraries(Demo MathFunctions)
-target_link_libraries(Demo absl::strings absl::base absl::optional absl::bad_any_cast jsoncpp gflags )
+target_link_libraries(Demo absl::strings absl::base absl::optional absl::bad_any_cast jsoncpp gflags glog)

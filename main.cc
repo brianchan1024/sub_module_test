@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include "json/json.h" // or jsoncpp/json.h , or json/json.h etc.
-//#include <glog/logging.h>
+#include <glog/logging.h>
 #include <gflags/gflags.h>
 
 using namespace std;
@@ -31,10 +31,11 @@ DEFINE_int32(port, 1111, "program listen port");
 DEFINE_bool(debug, true, "run debug mode");
 
 int main(int argc,char* argv[]) {
-  //google::InitGoogleLogging(argv[0]); //初始化 glog
-  //google::ParseCommandLineFlags(&argc, &argv, true);  // 初始化 gflags
+  google::InitGoogleLogging(argv[0]); //初始化 glog
+  cout << argv[0] << endl;
   gflags::ParseCommandLineFlags(&argc, &argv, true);
-  //LOG(INFO) << "Hello,GOOGLE!";
+  FLAGS_log_dir = "./log";
+  LOG(INFO) << "Hello,GOOGLE!";
   cout << "confPath = " << FLAGS_confPath << endl;
   cout << "port = " << FLAGS_port << endl;
   std::vector<std::string> v = {"foo","bar","baz"};
