@@ -14,10 +14,18 @@ aux_source_directory(. DIR_SRCS)
 
 include_directories(third-party)
 add_subdirectory(third-party/abseil-cpp)
+add_subdirectory(third-party/jsoncpp)
+
+include_directories(third-party/jsoncpp/include)
+add_library(jsoncpp
+    third-party/jsoncpp/src/lib_json/json_reader.cpp
+    third-party/jsoncpp/src/lib_json/json_value.cpp
+    third-party/jsoncpp/src/lib_json/json_writer.cpp
+)
 
 # 指定生成目标
 add_executable(Demo ${DIR_SRCS})
 
 # 添加链接库
 #target_link_libraries(Demo MathFunctions)
-target_link_libraries(Demo absl::strings absl::base absl::optional absl::bad_any_cast)
+target_link_libraries(Demo absl::strings absl::base absl::optional absl::bad_any_cast jsoncpp)
